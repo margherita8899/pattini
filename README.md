@@ -1,2 +1,2 @@
 # pattini
-un sito sui pattini
+un sito sul pattinaggio
