@@ -9,7 +9,9 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
+            background: linear-gradient(to bottom, #87CEEB, #4682B4);
+            color: #fff;
+            animation: backgroundShift 10s ease-in-out infinite alternate;
         }
         .header {
             width: 100%;
@@ -26,6 +28,7 @@
             border-radius: 10px;
             font-size: 2.5rem;
             font-weight: bold;
+            animation: bounceIn 1s ease-out;
         }
         main {
             padding: 40px 20px;
@@ -42,6 +45,7 @@
             width: 300px;
             border-radius: 8px;
             transition: transform 0.3s;
+            animation: zoomIn 0.5s ease-out;
         }
         .gallery img:hover {
             transform: scale(1.05);
@@ -81,6 +85,41 @@
             0% { transform: translate(-50%, -50%) rotate(0deg); }
             100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
+        .jump-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            margin: 20px auto;
+            width: 200px;
+        }
+        .jumper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes jump {
+            0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-50px); }
+        }
+        @keyframes backgroundShift {
+            0% { background: linear-gradient(to bottom, #87CEEB, #4682B4); }
+            100% { background: linear-gradient(to bottom, #4682B4, #87CEEB); }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
         .history, .specialties, .places, .costs, .clothes {
             margin: 30px auto;
             max-width: 800px;
@@ -88,6 +127,9 @@
         }
         .history h3, .specialties h3, .places h3, .costs h3, .clothes h3 {
             margin-bottom: 10px;
+        }
+        .section {
+            animation: fadeInUp 1s ease-out;
         }
         .specialties ul, .places ul, .costs ul, .clothes ul {
             list-style-type: square;
@@ -124,49 +166,7 @@
     <main>
         <h2>Scopri il mondo dei pattini da ghiaccio!</h2>
         <p>Qui troverai informazioni, curiosità e consigli su come scegliere e utilizzare i pattini da ghiaccio.</p>
-        <section class="history">
-            <h3>Storia e origini</h3>
-            <p>Il pattinaggio su ghiaccio ha origini antichissime: i primi reperti risalgono a oltre 3000 anni fa nei Paesi Nordici, dove si usavano ossa di animali come lame.</p>
-            <p>Nel corso dei secoli è diventato sport e forma d'arte, con il primo club documentato nel 1742 in Inghilterra. Nel XIX secolo, il pattinaggio artistico si sviluppò in Europa e America, portando alle prime competizioni internazionali.</p>
-        </section>
-        <section class="specialties">
-            <h3>Discipline del pattinaggio</h3>
-            <ul>
-                <li><strong>Pattinaggio artistico</strong> - esibizioni con figure, salti e coreografie.</li>
-                <li><strong>Pattinaggio di velocità</strong> - gare su pista lunga o short track.</li>
-                <li><strong>Hockey su ghiaccio</strong> - sport di squadra rapido e fisico.</li>
-                <li><strong>Pattinaggio sincronizzato</strong> - squadre che eseguono movimenti coordinati.</li>
-                <li><strong>Dance su ghiaccio</strong> - coppia che balla sul ghiaccio con musica.</li>
-            </ul>
-        </section>
-        <section class="places">
-            <h3>Dove praticare il pattinaggio</h3>
-            <ul>
-                <li><strong>Piste di ghiaccio naturali</strong> - laghi ghiacciati in inverno nei paesi nordici.</li>
-                <li><strong>Palazzetti del ghiaccio</strong> - strutture indoor in città come Milano, Torino, Roma.</li>
-                <li><strong>Stadi olimpici</strong> - per competizioni internazionali.</li>
-                <li><strong>Scuole di pattinaggio</strong> - centri sportivi specializzati.</li>
-            </ul>
-        </section>
-        <section class="costs">
-            <h3>Costi del pattinaggio</h3>
-            <ul>
-                <li><strong>Pattini da ghiaccio</strong> - da 50€ a 300€ per un paio base o professionale.</li>
-                <li><strong>Lezione individuale</strong> - circa 30-50€ l'ora.</li>
-                <li><strong>Ingresso pista</strong> - 10-20€ per sessione.</li>
-                <li><strong>Abbigliamento</strong> - completo da 100€ a 500€.</li>
-            </ul>
-        </section>
-        <section class="clothes">
-            <h3>Vestiti e attrezzatura</h3>
-            <ul>
-                <li><strong>Casco</strong> - obbligatorio per la sicurezza.</li>
-                <li><strong>Protezioni</strong> - gomitiere, ginocchiere, parastinchi.</li>
-                <li><strong>Abbigliamento termico</strong> - maglie a maniche lunghe, pantaloni.</li>
-                <li><strong>Guanti</strong> - per proteggere le mani.</li>
-            </ul>
-        </section>
-        <section class="gallery">
+        <section class="gallery section">
             <h3>Galleria di pattinatori</h3>
             <div class="images">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ice_skating_at_the_SNSB_2007.jpg/800px-Ice_skating_at_the_SNSB_2007.jpg" alt="Pattinatori su ghiaccio" />
@@ -177,9 +177,80 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Synchronized_skating_team.jpg/800px-Synchronized_skating_team.jpg" alt="Pattinaggio sincronizzato" />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Ice_skater_jumping.jpg/800px-Ice_skater_jumping.jpg" alt="Salto nel pattinaggio" />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Speed_skater_racing.jpg/800px-Speed_skater_racing.jpg" alt="Gara di velocità" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ice_skating_couple.jpg/800px-Ice_skating_couple.jpg" alt="Coppia di pattinatori" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Figure_skater_spinning.jpg/800px-Figure_skater_spinning.jpg" alt="Piruetta artistica" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Ice_hockey_goalie.jpg/800px-Ice_hockey_goalie.jpg" alt="Portiere hockey" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Speed_skating_ladies.jpg/800px-Speed_skating_ladies.jpg" alt="Pattinatrici di velocità" />
+                <img src="https://www.aics.it/wp-content/uploads/2024/09/alessia-bilancioni-1.jpg" alt="Alessia Bilancioni" />
+                <img src="https://tg24.sky.it/assets/images/79dcfc68cf12accd9f282a3ed5ea4648d7adb531/skytg24/it/spettacolo/2024/01/12/bol-on-ice-gala-pattinaggio/bol-on-ice.jpg" alt="Bol on Ice Gala Pattinaggio" />
             </div>
         </section>
-        <section class="animations">
+        <section class="history section">
+            <h3>Storia e origini</h3>
+            <img src="blu.png" alt="Blu" style="float: right; width: 150px; margin-left: 20px;">
+            <p>Il pattinaggio su ghiaccio ha origini antichissime: i primi reperti risalgono a oltre 3000 anni fa nei Paesi Nordici, dove si usavano ossa di animali come lame.</p>
+            <p>Nel corso dei secoli è diventato sport e forma d'arte, con il primo club documentato nel 1742 in Inghilterra. Nel XIX secolo, il pattinaggio artistico si sviluppò in Europa e America, portando alle prime competizioni internazionali.</p>
+        </section>
+        <section class="specialties section">
+            <h3>Discipline del pattinaggio</h3>
+            <img src="coppia.png" alt="Coppia" style="float: left; width: 150px; margin-right: 20px;">
+            <ul>
+                <li><strong>Pattinaggio artistico</strong> - esibizioni con figure, salti e coreografie.</li>
+                <li><strong>Pattinaggio di velocità</strong> - gare su pista lunga o short track.</li>
+                <li><strong>Hockey su ghiaccio</strong> - sport di squadra rapido e fisico.</li>
+                <li><strong>Pattinaggio sincronizzato</strong> - squadre che eseguono movimenti coordinati.</li>
+                <li><strong>Dance su ghiaccio</strong> - coppia che balla sul ghiaccio con musica.</li>
+            </ul>
+        </section>
+        <section class="places section">
+            <h3>Dove praticare il pattinaggio</h3>
+            <img src="ghiaccio.png" alt="Ghiaccio" style="float: right; width: 150px; margin-left: 20px;">
+            <ul>
+                <li><strong>Piste di ghiaccio naturali</strong> - laghi ghiacciati in inverno nei paesi nordici.</li>
+                <li><strong>Palazzetti del ghiaccio</strong> - strutture indoor in città come Milano, Torino, Roma.</li>
+                <li><strong>Stadi olimpici</strong> - per competizioni internazionali.</li>
+                <li><strong>Scuole di pattinaggio</strong> - centri sportivi specializzati.</li>
+            </ul>
+        </section>
+        <section class="costs section">
+            <h3>Costi del pattinaggio</h3>
+            <img src="rosso.png" alt="Rosso" style="float: left; width: 150px; margin-right: 20px;">
+            <ul>
+                <li><strong>Pattini da ghiaccio</strong> - da 50€ a 300€ per un paio base o professionale.</li>
+                <li><strong>Lezione individuale</strong> - circa 30-50€ l'ora.</li>
+                <li><strong>Ingresso pista</strong> - 10-20€ per sessione.</li>
+                <li><strong>Abbigliamento</strong> - completo da 100€ a 500€.</li>
+            </ul>
+        </section>
+        <section class="clothes section">
+            <h3>Vestiti e attrezzatura</h3>
+            <ul>
+                <li><strong>Casco</strong> - obbligatorio per la sicurezza.</li>
+                <li><strong>Protezioni</strong> - gomitiere, ginocchiere, parastinchi.</li>
+                <li><strong>Abbigliamento termico</strong> - maglie a maniche lunghe, pantaloni.</li>
+                <li><strong>Guanti</strong> - per proteggere le mani.</li>
+            </ul>
+        </section>
+        <section class="shops section">
+            <h3>Negozi di pattinaggio</h3>
+            <ul>
+                <li><strong>Decathlon</strong> - catena internazionale con attrezzature sportive, pattini e accessori.</li>
+                <li><strong>Sportler</strong> - negozi specializzati in sport invernali.</li>
+                <li><strong>Amazon</strong> - online per pattini, vestiti e protezioni.</li>
+                <li><strong>Negozi locali</strong> - centri sportivi in città come Milano o Torino.</li>
+            </ul>
+        </section>
+        <section class="famous-skaters section">
+            <h3>Pattinatori più famosi</h3>
+            <ul>
+                <li><strong>Sonny Bono</strong> - pattinatore artistico americano, vincitore di medaglie.</li>
+                <li><strong>Dorothy Hamill</strong> - campionessa olimpica nel 1976.</li>
+                <li><strong>Scott Hamilton</strong> - quattro volte campione mondiale.</li>
+                <li><strong>Katarina Witt</strong> - due volte campionessa olimpica.</li>
+                <li><strong>Alexei Yagudin</strong> - pattinatore russo, quattro volte campione mondiale.</li>
+            </ul>
+        </section>
+        <section class="animations section">
             <h3>Animazioni</h3>
             <div class="skater-container">
                 <img class="skater" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Skater_animation.gif" alt="Pattinatore in movimento" />
@@ -187,8 +258,11 @@
             <div class="spin-container">
                 <img class="spinner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Figure_skating_spin.jpg/400px-Figure_skating_spin.jpg" alt="Piruetta" />
             </div>
+            <div class="jump-container">
+                <img class="jumper" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Ice_skater_jumping.jpg/400px-Ice_skater_jumping.jpg" alt="Salto" style="animation: jump 2s ease-in-out infinite;" />
+            </div>
         </section>
-        <section class="audio-player">
+        <section class="audio-player section">
             <h3>Suoni</h3>
             <audio controls>
                 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
@@ -197,6 +271,11 @@
             <br>
             <audio controls>
                 <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+                Il tuo browser non supporta l'elemento audio.
+            </audio>
+            <br>
+            <audio controls>
+                <source src="https://www.soundjay.com/misc/sounds/applause-01.wav" type="audio/wav">
                 Il tuo browser non supporta l'elemento audio.
             </audio>
         </section>
