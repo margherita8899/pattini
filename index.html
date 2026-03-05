@@ -31,15 +31,144 @@
             padding: 40px 20px;
             text-align: center;
         }
+        .gallery .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 300px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .skater-container {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 800px;
+        }
+        .skater {
+            position: absolute;
+            left: -200px;
+            animation: skate 8s linear infinite;
+        }
+        @keyframes skate {
+            0% { left: -200px; }
+            100% { left: 100%; }
+        }
+        .history, .specialties {
+            margin: 30px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .history h3, .specialties h3 {
+            margin-bottom: 10px;
+        }
+        .specialties ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+        .tips ul {
+            list-style-type: disc;
+            text-align: left;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        @media (max-width: 600px) {
+            .gallery img {
+                width: 100%;
+            }
+            .header-title {
+                font-size: 1.8rem;
+                padding: 15px 20px;
+            }
+        }
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="header-title">Benvenuti nel sito dei Pattini</div>
+        <div class="header-title" id="title">Benvenuti nel sito dei Pattini</div>
     </div>
     <main>
         <h2>Scopri il mondo dei pattini da ghiaccio!</h2>
         <p>Qui troverai informazioni, curiosità e consigli su come scegliere e utilizzare i pattini da ghiaccio.</p>
+        <section class="history">
+            <h3>Storia e origini</h3>
+            <p>Il pattinaggio su ghiaccio ha origini antichissime: i primi reperti risalgono a oltre 3000 anni fa nei Paesi Nordici, dove si usavano ossa di animali come lame.</p>
+            <p>Nel corso dei secoli è diventato sport e forma d'arte, con il primo club documentato nel 1742 in Inghilterra.</p>
+        </section>
+        <section class="specialties">
+            <h3>Tipi di specialità</h3>
+            <ul>
+                <li><strong>Pattinaggio artistico</strong> - esibizioni con figure, salti e coreografie.</li>
+                <li><strong>Pattinaggio di velocità</strong> - gare su pista lunga o short track.</li>
+                <li><strong>Hockey su ghiaccio</strong> - sport di squadra rapido e fisico.</li>
+                <li><strong>Pattinaggio sincronizzato</strong> - squadre che eseguono movimenti coordinati.</li>
+            </ul>
+        </section>
+        <section class="gallery">
+            <h3>Galleria</h3>
+            <div class="images">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ice_skating_at_the_SNSB_2007.jpg/800px-Ice_skating_at_the_SNSB_2007.jpg" alt="Pattinatori" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Figure_skating_combined_events.jpg/800px-Figure_skating_combined_events.jpg" alt="Pattinaggio artistico" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Ice_hockey_puck_in_air.jpg/800px-Ice_hockey_puck_in_air.jpg" alt="Hockey su ghiaccio" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Speed_skating_short_track.jpg/800px-Speed_skating_short_track.jpg" alt="Pattinaggio di velocità" />
+            </div>
+        </section>
+        <section class="animation">
+            <h3>Animazione</h3>
+            <div class="skater-container">
+                <img class="skater" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Skater_animation.gif" alt="Skater" />
+            </div>
+        </section>
+        <section class="audio-player">
+            <h3>Suono</h3>
+            <audio controls>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Il tuo browser non supporta l'elemento audio.
+            </audio>
+        </section>
+        <section class="tips">
+            <h3>Consigli per principianti</h3>
+            <ul>
+                <li>Indossa sempre casco e protezioni.</li>
+                <li>Impara a cadere correttamente per evitare infortuni.</li>
+                <li>Controlla l'attrezzatura prima di ogni uscita.</li>
+                <li>Fai pratica su superfici lisce e prive di ostacoli.</li>
+            </ul>
+        </section>
     </main>
+    <footer>
+        <p>&copy; 2026 Sito sui Pattini</p>
+    </footer>
+    <script>
+        // semplice effetto macchina da scrivere per il titolo
+        const titleElement = document.getElementById('title');
+        const text = titleElement.textContent;
+        titleElement.textContent = '';
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                titleElement.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', typeWriter);
+    </script>
 </body>
 </html>
