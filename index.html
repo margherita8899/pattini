@@ -63,15 +63,33 @@
             0% { left: -200px; }
             100% { left: 100%; }
         }
-        .history, .specialties {
+        .spin-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            margin: 20px auto;
+            width: 200px;
+        }
+        .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: spin 3s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .history, .specialties, .places, .costs, .clothes {
             margin: 30px auto;
             max-width: 800px;
             text-align: left;
         }
-        .history h3, .specialties h3 {
+        .history h3, .specialties h3, .places h3, .costs h3, .clothes h3 {
             margin-bottom: 10px;
         }
-        .specialties ul {
+        .specialties ul, .places ul, .costs ul, .clothes ul {
             list-style-type: square;
             margin-left: 20px;
         }
@@ -109,36 +127,76 @@
         <section class="history">
             <h3>Storia e origini</h3>
             <p>Il pattinaggio su ghiaccio ha origini antichissime: i primi reperti risalgono a oltre 3000 anni fa nei Paesi Nordici, dove si usavano ossa di animali come lame.</p>
-            <p>Nel corso dei secoli è diventato sport e forma d'arte, con il primo club documentato nel 1742 in Inghilterra.</p>
+            <p>Nel corso dei secoli è diventato sport e forma d'arte, con il primo club documentato nel 1742 in Inghilterra. Nel XIX secolo, il pattinaggio artistico si sviluppò in Europa e America, portando alle prime competizioni internazionali.</p>
         </section>
         <section class="specialties">
-            <h3>Tipi di specialità</h3>
+            <h3>Discipline del pattinaggio</h3>
             <ul>
                 <li><strong>Pattinaggio artistico</strong> - esibizioni con figure, salti e coreografie.</li>
                 <li><strong>Pattinaggio di velocità</strong> - gare su pista lunga o short track.</li>
                 <li><strong>Hockey su ghiaccio</strong> - sport di squadra rapido e fisico.</li>
                 <li><strong>Pattinaggio sincronizzato</strong> - squadre che eseguono movimenti coordinati.</li>
+                <li><strong>Dance su ghiaccio</strong> - coppia che balla sul ghiaccio con musica.</li>
+            </ul>
+        </section>
+        <section class="places">
+            <h3>Dove praticare il pattinaggio</h3>
+            <ul>
+                <li><strong>Piste di ghiaccio naturali</strong> - laghi ghiacciati in inverno nei paesi nordici.</li>
+                <li><strong>Palazzetti del ghiaccio</strong> - strutture indoor in città come Milano, Torino, Roma.</li>
+                <li><strong>Stadi olimpici</strong> - per competizioni internazionali.</li>
+                <li><strong>Scuole di pattinaggio</strong> - centri sportivi specializzati.</li>
+            </ul>
+        </section>
+        <section class="costs">
+            <h3>Costi del pattinaggio</h3>
+            <ul>
+                <li><strong>Pattini da ghiaccio</strong> - da 50€ a 300€ per un paio base o professionale.</li>
+                <li><strong>Lezione individuale</strong> - circa 30-50€ l'ora.</li>
+                <li><strong>Ingresso pista</strong> - 10-20€ per sessione.</li>
+                <li><strong>Abbigliamento</strong> - completo da 100€ a 500€.</li>
+            </ul>
+        </section>
+        <section class="clothes">
+            <h3>Vestiti e attrezzatura</h3>
+            <ul>
+                <li><strong>Casco</strong> - obbligatorio per la sicurezza.</li>
+                <li><strong>Protezioni</strong> - gomitiere, ginocchiere, parastinchi.</li>
+                <li><strong>Abbigliamento termico</strong> - maglie a maniche lunghe, pantaloni.</li>
+                <li><strong>Guanti</strong> - per proteggere le mani.</li>
             </ul>
         </section>
         <section class="gallery">
-            <h3>Galleria</h3>
+            <h3>Galleria di pattinatori</h3>
             <div class="images">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ice_skating_at_the_SNSB_2007.jpg/800px-Ice_skating_at_the_SNSB_2007.jpg" alt="Pattinatori" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ice_skating_at_the_SNSB_2007.jpg/800px-Ice_skating_at_the_SNSB_2007.jpg" alt="Pattinatori su ghiaccio" />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Figure_skating_combined_events.jpg/800px-Figure_skating_combined_events.jpg" alt="Pattinaggio artistico" />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Ice_hockey_puck_in_air.jpg/800px-Ice_hockey_puck_in_air.jpg" alt="Hockey su ghiaccio" />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Speed_skating_short_track.jpg/800px-Speed_skating_short_track.jpg" alt="Pattinaggio di velocità" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ice_dance_competition.jpg/800px-Ice_dance_competition.jpg" alt="Dance su ghiaccio" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Synchronized_skating_team.jpg/800px-Synchronized_skating_team.jpg" alt="Pattinaggio sincronizzato" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Ice_skater_jumping.jpg/800px-Ice_skater_jumping.jpg" alt="Salto nel pattinaggio" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Speed_skater_racing.jpg/800px-Speed_skater_racing.jpg" alt="Gara di velocità" />
             </div>
         </section>
-        <section class="animation">
-            <h3>Animazione</h3>
+        <section class="animations">
+            <h3>Animazioni</h3>
             <div class="skater-container">
-                <img class="skater" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Skater_animation.gif" alt="Skater" />
+                <img class="skater" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Skater_animation.gif" alt="Pattinatore in movimento" />
+            </div>
+            <div class="spin-container">
+                <img class="spinner" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Figure_skating_spin.jpg/400px-Figure_skating_spin.jpg" alt="Piruetta" />
             </div>
         </section>
         <section class="audio-player">
-            <h3>Suono</h3>
+            <h3>Suoni</h3>
             <audio controls>
                 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Il tuo browser non supporta l'elemento audio.
+            </audio>
+            <br>
+            <audio controls>
+                <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
                 Il tuo browser non supporta l'elemento audio.
             </audio>
         </section>
